@@ -1,0 +1,147 @@
+.insight-reports-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.insight-reports-container .options{
+    width: 100%;
+    height: 70px;
+    background-color: antiquewhite;
+}
+
+.insight-reports-container .reports-list{
+    position: relative;
+    margin-top: 2vh;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.reports-list .reports .report,
+.reports-list .report-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 50px;
+
+}
+
+.reports-list .reports .report{
+    padding: 10px 0;
+    height: max-content;
+    width: max-content;
+    max-width: max-content;
+    overflow-x: auto;
+}
+
+.reports-list .report-header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    max-width: max-content;
+    overflow-x: auto;
+    box-shadow: 0 2.5px 5px #dddd;
+    background-color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+.reports-list .reports .report div.item,
+.reports-list .report-header span.th{
+    text-align: center;
+    width: auto;
+    font-size: 15px;
+
+}
+
+.reports-list .reports .report div.item:first-child,
+.reports-list .report-header span.th:first-child{
+    width: 100px !important;
+}
+
+.reports-list .reports .report div.item:nth-child(2),
+.reports-list .report-header span.th:nth-child(2){
+    width: 150px;
+}
+
+.reports-list .reports .report div.item:nth-child(3),
+.reports-list .report-header span.th:nth-child(3){
+    width: 200px;
+}
+
+.reports-list .reports .report div.item:nth-child(4),
+.reports-list .report-header span.th:nth-child(4){
+    width: 120px;
+}
+
+.reports-list .reports .report div.item:nth-child(5),
+.reports-list .report-header span.th:nth-child(5){
+    width: 250px;
+}
+
+/* =============================================== */
+/* Report lists css goes here */
+
+.reports-list .reports{
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.reports-list .reports .report{
+    width: max-content;
+    box-shadow: none;
+    border-bottom: 1px solid #eeee;
+    background-color: white;
+    font-size: 15px;
+}
+
+.reports-list .reports .report .action-btns{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.reports-list .reports .report .action-btns button{
+    padding: 2px 10px;
+    width: max-content;
+    border: 1px solid #cccc;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.reports-list .reports .report .action-btns button:focus,
+.reports-list .reports .report .action-btns button:active{
+    color: white;
+    background-color: black;
+}
+
+.reports-list .reports .report .action-btns button:hover{
+    color: black;
+    background-color: #cccc;
+}
+
+
+.charts-container{
+    padding-right: 15px;
+}
+.charts-container div{
+    background-color: white !important;
+    padding: 15px 15px !important;
+    height: 500px !important;
+    margin-bottom: 40px;
+}
+
+.charts-container p{
+    font-size: 18px;
+    font-weight: 600;
+}

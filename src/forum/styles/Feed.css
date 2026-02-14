@@ -1,0 +1,377 @@
+.forum .home .feed{
+    flex: 1;
+    min-width: 350px;
+    height: max-content;
+    overflow-x: hidden;
+    border-radius: 15px;
+}
+
+.css-zw3mfo-MuiModal-root-MuiDialog-root{
+    z-index: 9999999 !important;
+}
+
+#nav-tabContent{
+    position: relative;
+    z-index: 9999;
+}
+
+.feed .create-post{
+    padding: 20px 15px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 15px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2.5px 5px #dddd;
+}
+
+.feed .create-post .user-img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.feed .create-post .input-field,
+.feed .create-post .input-field input{
+    width: 90%;
+    height: 40px;
+}
+
+.feed .create-post .input-field input{
+    outline: none;
+    border: 1px solid #cccc;
+    border-radius: 5px;
+    text-indent: 15px;
+}
+
+/* ======================================= */
+/* Individual feed posts css goes here*/
+
+.feed .feed-posts{
+    padding: 15px 0;
+    width: 100%;
+    height: max-content;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.feed .feed-posts .post{
+    margin: 10px 0;
+    padding: 20px 5px;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0 2.5px 5px #eeee;
+    background-color: white;
+}
+
+.post .post-counts{
+    margin: 50px 20px 0 30px;
+    width: 2em;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.post .post-counts button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.post .post-counts button i{
+    padding: 0 15px;
+    height: 35px;
+    color: rgb(66, 66, 66);
+    font-size: 25px !important;
+}
+
+.post .post-data-container{
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.post .post-data-container .author{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.post .post-data-container .author span:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.post .post-data-container .author p.author-role,
+.post .post-data-container .author p.author-name{
+    margin: 0;
+}
+
+.post .post-data-container .author .author-img img,
+.post .post-data-container .author .author-img{
+    width: 40px;
+    height: 40px;
+    border: 1px solid #dddd;
+    border-radius: 50%;
+} 
+
+.post .post-data-container .author .follow-btn-container{
+    margin-left: 15px;
+}
+.post .post-data-container .author .follow-btn-container button{
+    padding: 2px 10px;
+    border: 1px solid #dddd;
+    border-radius: 3px;
+}
+
+.post .post-data-container .author .follow-btn-container button.follow-btn{
+    color: white;
+    background-color: black;
+}
+
+.post-data-container .author-keywords{
+    margin: 17px 0 12px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 7px;
+}
+
+.post-data-container .author-keywords .keyword{
+    padding: 2px 7px;
+    background-color: #e5ecef;
+}
+
+.post-data-container .author-post{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.post-data-container .author-post p.description{
+    font-size: 16px;
+}
+
+.post-data-container .author-post .author-post-image{
+    margin-top: 5px;
+}
+
+.post-data-container .author-post .author-post-image,
+.post-data-container .author-post .author-post-image img{
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    background-size: cover;
+}
+
+.post-data-container .below-posts{
+    display: flex;
+    flex-direction: column;
+}
+.post-data-container .post-btns{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    margin: 20px 0 10px 0;
+    /* background-color: antiquewhite; */
+}
+
+.post-data-container .post-btns button{
+    padding: 5px 20px;
+    border: 1px solid #dddd;
+    outline: none;
+}
+.post-data-container .post-btns button i{
+    margin-right: 10px;
+}
+
+/* ========================================================== */
+/* comment box css goes here */
+
+.post-data-container .comment-box{
+    padding-right: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.comment-box .create-comment-wrapper{
+    position: relative;
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #dddd;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.comment-box .create-comment-wrapper .author-img{
+    position: absolute;
+    left: 5px;
+}
+
+.comment-box .create-comment-wrapper .author-img,
+.comment-box .create-comment-wrapper .author-img img{
+    width: 35px;
+    height: 35px;
+    border: 1px solid #dddd;
+    border-radius: 50%;
+}
+.comment-box .create-comment-wrapper .create-comment{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.comment-box .create-comment-wrapper .create-comment,
+.comment-box .create-comment-wrapper textarea{
+    width: 98%;
+    height: 45px;
+    border-radius: 25px;
+}
+
+.comment-box .create-comment-wrapper textarea{
+    resize: none;
+    margin-left: 50px;
+    padding: 5px 70px 0 5px;
+    border: none;
+    outline: none;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+/* width */
+.comment-box .create-comment-wrapper textarea::-webkit-scrollbar {
+    display: none !important;
+  }
+
+.comment-box .submit-comment{
+    position: absolute;
+    right: 0;
+}
+
+.comment-box .submit-comment button{
+    padding: 4px 20px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.comment-box .submit-comment button i{
+    font-size: 20px;
+}
+
+.comment-box .comment-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-box .comments{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.comment-box .comments .comment:last-child{
+    border-bottom: none;
+}
+.comment-box .comments .comment{
+    border-bottom: 1px solid #cccc;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.comment-box .comments .comment .commenter-img{
+    margin-right: 10px;
+}
+.comment-box .comments .comment .commenter-img,
+.comment-box .comments .comment .commenter-img img{
+    width: 40px;
+    height: 40px;
+}
+
+.comment-box .comments .comment .text{
+    margin-left: 5px;
+}
+
+.comment-box .comments .comment p.commenter-name{
+    margin-bottom: 0;
+}
+
+.comment-box .comments .comment p.description{
+    margin-top: 0.2em;
+}
+
+@media only screen and (max-width: 600px) {
+    .post-data-container .author-post .author-post-image img{
+        max-width: 300px;
+        max-height: 200px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .post-data-container .author-post .author-post-image img{
+        max-width: 250px;
+        max-height: 150px;
+    }
+}
+
+.label{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+textarea:not(.keywords) {
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+.keywords{
+    background-color: #fcfeff;
+}
+
+.MuiTextField-root{
+    width: 100% !important;
+    margin-bottom: 20px !important;
+}
+
+.feed .Toastify__toast-container--top-right{
+    top: 5em !important;
+}
+
+.css-bdhsul-MuiTypography-root-MuiDialogTitle-root{
+    font-size: 30px !important;
+    font-weight: 600 !important;
+}

@@ -1,0 +1,82 @@
+.notification-container{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.notification-container .notifications{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5em;
+}
+
+.notification-container .header{
+    font-size: 20px;
+    font-weight: 500;
+    padding: 14px 20px;
+    border-bottom: 1px solid #dddd;
+}
+
+.notifications .notification{
+    padding: 10px 20px;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.2em;
+    border-bottom: 1px solid #eeee;
+}
+
+.notifications .notification:last-child{
+    border-bottom: none;
+}
+
+.notifications .notification.unread{
+    border-left: 2px solid rgb(0, 203, 0);
+    background-color: rgb(242, 246, 249);
+}
+
+.notifications .notification.unread img{
+    padding: 2px;
+    border: 1px solid rgb(66, 255, 78);
+}
+
+.notification .user-avatar{
+    min-width: 50px;
+    max-width: 50px;
+    height: 50px;
+}
+
+.notification .user-avatar img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 5px 10px #dddd;
+}
+
+.notification .description{
+    display: flex;
+    flex-direction: column;
+}
+
+.notification .description .text{
+    font-size: 15px;
+} 
+
+.notification .description .text p{
+    display: inline;
+    width: max-content;
+}
+
+.notification .description .text p.mutual-friend{
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+.notification .description .time{
+    font-size: 14px;
+}

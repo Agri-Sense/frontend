@@ -1,0 +1,146 @@
+.sidebar{
+    position: fixed;
+    top: 0;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 250px;
+    max-width: 250px;
+    height: max-content;
+    max-height: max-content;
+    overflow-y: auto;
+    border-right: 1px solid #eeee;
+    background-color: white !important;
+}
+
+.sidebar .brandLogo{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 50px;
+    text-align: center;
+    border-bottom: 1px solid #dddd;
+}
+
+.sidebar-menu{
+    width: 100%;
+    min-height: 80vh;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5em;
+    min-height: max-content !important;
+}
+
+.sidebar-menu .grouped{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.sidebar-menu .label{
+    margin-bottom: 10px;
+}
+
+.sidebar-menu button.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 15px !important;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    text-indent: 15px;
+    font-size: 17px;
+    border: none;
+    border-radius: 7px;
+    background-color: transparent;
+    color: rgb(91, 91, 91);
+}
+
+.sidebar-menu button.item p{
+    margin: auto;
+    margin-left: -5%;
+}
+
+.sidebar .collapse{
+    width: 100%;
+}
+
+.sidebar .collapse button.item{
+    width: 90%;
+    margin-left: 20px;
+}
+
+.sidebar-menu button.item i{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+/* -------------------------------------------- */
+
+.sidebar-menu.home button.home,
+.sidebar-menu.p2p button.p2p,
+.sidebar-menu.orders button.orders,
+.sidebar-menu button.forum-btn:focus,
+.sidebar-menu button.logout:focus,
+.sidebar-menu.profile button.profile{
+    background-color: #def0ec;
+    color: #11713f;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .sidebar{
+        width: 100px;
+    }
+
+    .sidebar .sidebar-menu button{
+        justify-content: center !important;
+        align-items: center;
+        text-indent: 0px !important;
+        text-align: center !important;
+    }
+    .sidebar .sidebar-menu button i{
+        margin: 0px !important;
+    }
+    .sidebar .sidebar-menu label,
+    .sidebar .sidebar-menu button p{
+        display: none;
+    }
+    .dashboard .main{
+        margin-left: 100px !important;
+        width: calc(100% - 100px) !important;
+    }
+}
+
+/* width */
+.sidebar::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 4px;
+    display: none !important;
+  }
+  
+  /* Track */
+.sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(202, 202, 202, 0.8);
+  }
+  /* Handle on hover */
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgb(202, 202, 202);
+  }

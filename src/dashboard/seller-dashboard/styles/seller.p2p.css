@@ -1,0 +1,218 @@
+
+.available-orders{
+    padding-bottom: 15px;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.available-orders .internal-div-header{
+    font-weight: 600;
+}
+
+.available-orders .options{
+    margin-top: 10px;
+    padding: 20px 20px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    border: 1px solid #eeee;
+    border-radius: 5px;
+    box-shadow: 0 2.5px 5px #eeee;
+    background-color: white;
+}
+
+.options .options-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.options .options-header label{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.options .filter{
+    margin-top: 0.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px 0 !important;
+}
+
+.options .filter span:first-child{
+    flex: 6;
+}
+
+.options .filter span:nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.options .filter input{
+    min-width: 250px;
+    width: 100%;
+    height: 45px;
+    text-indent: 15px;
+    border: 1px solid #dddd;
+}
+.options .filter button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 45px;
+    margin-left: 15px;
+    width: max-content;
+    height: 100%;
+    background: #c0f1b98a;
+    color: #014d0fbf;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+    gap: 10px;
+}
+
+.options .filter button p {
+    margin: 0;
+}
+
+.options .filter button.filter-btn{
+    color: black;
+    background-color: #dce3e9;
+}
+
+
+/* =========================================== */
+.available-orders .orders{
+    margin: 1em 0;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5em 1.2em;
+}
+
+.orders .order{
+    font-size: 15px;
+    padding: 15px 15px 5px 15px;
+    min-width: 400px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(249, 253, 255, 0.867);
+    border-radius: 5px;
+    box-shadow: 0 2.5px 5px #eeee;
+    background-color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.orders .order:hover{
+    box-shadow: 0 2.5px 5px #dddd;
+}
+
+.orders .order .info{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.orders .order .info .left{    
+    width: 100px;
+    height: 80px;
+    border: 2px solid #cccc;
+    border-radius: 12px;
+}
+
+.order .info .left img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-size: cover;
+}
+
+.order .info .right{
+    display: flex;
+    flex-direction: column;
+}
+
+.order .info .right .product-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.order .info .right .orderID{
+    font-size: 14px;
+}
+
+.order .info .right .createdAt{
+    color: rgba(33, 37, 41, 0.75);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.order .info .right span{
+    width: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.order .info .right .pricing span:nth-child(2){
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.order .actions{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    align-items: center;
+    margin-top: 10px;
+    border-top: 1px solid #eeee;
+}
+
+.order .actions button{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin-top: 5px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    background-color: black;
+    transition: 0.2s ease-in-out;
+}
+
+.order .actions button.chat-btn{
+    color: black;
+    background-color: #dce3e9;
+    border: 1px solid #dddd;
+}
+
+.order .actions button.chat-btn:hover{
+    box-shadow: 0 2.5px 5px #eeee;
+}
+
+.order .actions button p {
+    margin: 0;
+    margin-left: 5px;
+}
+
+.order .actions button:hover{
+    box-shadow: 0 2.5px 5px #cccc;
+}

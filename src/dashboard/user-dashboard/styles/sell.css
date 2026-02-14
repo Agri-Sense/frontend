@@ -1,0 +1,170 @@
+.MuiDataGrid-cell,
+.MuiDataGrid-columnHeaderTitleContainer{
+    justify-content: center !important;
+}
+
+.MuiDataGrid-toolbarContainer{
+    padding: 10px 10px !important;
+}
+
+.css-1e2bxag-MuiDataGrid-root{
+    border: none !important;
+    padding: 0 10px !important;
+}
+
+.super-app.completed{
+    background-color: transparent !important;
+    color: green !important;
+}
+
+.super-app.cancelled{
+    background-color: transparent !important;
+    color: red !important;
+}
+
+.super-app.pending{
+    background-color: transparent !important;
+    color: #0077ff !important;
+}
+
+.MuiDataGrid-toolbarContainer button{
+    margin: 10px 0;
+    padding: 7px 15px;
+    color: white !important;
+    background-color: black !important;
+}
+
+.order-highlights{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px 0 30px 0;
+    gap: 50px;
+}
+
+.order-highlights p{
+    flex: 3;
+    min-width: 200px;
+}
+.order-highlights .create-order{
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+.create-order-modal{
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.create-order-modal small{
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.create-order-modal .d-row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.create-order-modal .pos-abs{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    gap: 20px;
+}
+
+.create-order-modal button.total-amount{
+    padding: 5px 10px;
+    border: 1px solid #dddd;
+    color: rgb(4, 59, 4);
+    border-radius: 5px;
+    background-color: rgb(217, 238, 223);
+}
+
+
+/* ======================================================= */
+/* my orders css goes here */
+
+.my-orders-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: max-content;
+    margin-bottom: 30px;
+}
+
+.my-orders-wrapper .order{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    width: max-content;
+    border: 1px solid #dddd;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2.5px 5px #dddd;
+}
+
+.order .bottom,
+.order .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.order .top div:first-child{
+    display: flex;
+    flex-direction: column;
+}
+
+.order .top .product-name{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.order .top .created-date{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.order .top .order-status{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px 0;
+}
+
+.order .top .order-status button{
+    border: 1px solid #dddd;
+}
+
+.order .bottom {
+    margin-top: 0px;
+    flex-direction: column !important;
+    gap: 3px;
+}
+.order .bottom .item{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.order .bottom .item .price{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.order .bottom .item .total-amount{
+    font-size: 16px;
+    font-weight: 500;
+}

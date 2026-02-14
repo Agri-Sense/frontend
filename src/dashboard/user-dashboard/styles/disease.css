@@ -1,0 +1,40 @@
+.disease-page-wrapper{
+    margin-top: 1em;
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    overflow-x: auto;
+}
+
+.disease-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.disease-container .file-card {
+    flex: 1;
+    min-width: 400px;
+    max-height: 350px;
+    padding-bottom: 0px !important;
+    justify-content: flex-start !important;
+}
+
+.disease-container .disease-descritpion-container{
+    flex: 3;
+    min-width: 500px;
+    width: 100%;
+    height: 100%;
+    background-color: bisque;
+}
+
+/* ========================================================= */
+.past-reports-container{
+    width: 100%;
+    min-width: 500px;
+    height: 400px;
+}

@@ -1,0 +1,74 @@
+.left .alert-system{
+    padding: 10px 15px;
+    width: inherit;
+    height: max-content;
+    border: 1px solid #dddd;
+    box-shadow: 0 2.5px 5px #dddd;
+    background-color: white;
+}
+
+.internal-div-headers{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.alert-system .alerts{
+    width: 100%;
+    max-width: inherit;
+    overflow-x: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0 20px;
+}
+
+.alert-system .alerts .alert{
+    min-width: 350px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 1px solid #cccc;
+}
+
+.alert-system .alerts .alert .alert-header{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.alert-system .alerts .alert .alert-header p{
+    margin: 0;
+}
+
+
+.alert-system .alerts .alert .alert-description{
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+.alert-system .alerts .alert .action-btns{
+    margin-top: 5px;
+    width: 100%;
+    text-align: right;
+}
+
+.alert-system .alerts .alert .action-btns button{
+    font-size: 15px;
+    padding: 5px 20px;
+    border: 1px solid #017065;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #009688;
+}
+
+/* width */
+.alerts::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 4px;
+    height: 10px;
+}

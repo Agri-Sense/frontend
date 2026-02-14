@@ -1,0 +1,46 @@
+/* ========================================= */
+/* css for hihglights goes here */
+
+ .highlights-container{
+    margin-bottom: 20px;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 2em;
+}
+
+.highlights-container .highlight{
+    width: 300px;
+    min-width: 270px;
+    padding: 0px 0 10px 0;
+    background-color: white;
+    border: 1px solid #dddd;
+    border-radius: 5px;
+    box-shadow: 0 2.5px 5px #eeee;
+}
+
+.highlight .header{
+    vertical-align: middle;
+    padding: 0.5em 1em;
+    width: 100%;
+    border-bottom: 1px solid #eeee;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: aliceblue;
+}
+
+.highlight.customers .header{
+    background-color: #c8e6c9;
+}
+
+.highlight.revenue .header{
+    background-color: #bbdefb;
+}
+
+.highlight.orders .header{
+    background-color: #ffcc80;
+}
