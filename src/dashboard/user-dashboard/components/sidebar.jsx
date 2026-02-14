@@ -66,6 +66,20 @@ export const UserSidebar = ({ active }) => {
             <i className="bi bi-bug"></i>
             <p>Disease</p>
           </button>
+          <button
+            className="item crop mb-3"
+            onClick={() => Navigate("/dashboard/crop")}
+          >
+            <i className="bi bi-flower1"></i>
+            <p>Crop</p>
+          </button>
+          <button
+            className={`item ${active === '3d' ? 'active' : ''}`}
+            onClick={() => Navigate("/dashboard/3d")}
+          >
+            <i className="bi bi-box"></i>
+            <p>Hardware 3D</p>
+          </button>
 
           <label htmlFor="#" className="label">
             Account

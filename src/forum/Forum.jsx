@@ -8,8 +8,9 @@ import { Feed } from "./components/Feed";
 import { Navbar } from "./components/Navbar";
 import { Profile } from "./components/Profile";
 import { Sidebar } from "./components/Sidebar";
+import MarketNews from "./components/MarketNews";
 import { FarmDisplay } from "./components/FarmDisplay";
-import {  useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 import FeedContextProvider from "../context/FeedContextProvider";
@@ -46,11 +47,11 @@ export const Forum = () => {
                 id="nav-market"
                 role="tabpanel"
                 tabIndex="0">
-                This is Market Stats Tab
+                <MarketNews />
               </div>
               <div
                 className="tab-pane fade"
-                id="farmap-profile"
+                id="agri-sense-profile"
                 role="tabpanel"
                 tabIndex="0" >
                 <Profile />

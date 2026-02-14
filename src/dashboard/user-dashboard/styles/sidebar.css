@@ -1,4 +1,4 @@
-.sidebar{
+.sidebar {
     position: fixed;
     top: 0;
     box-sizing: content-box;
@@ -15,7 +15,7 @@
     background-color: white;
 }
 
-.sidebar .brandLogo{
+.sidebar .brandLogo {
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -26,7 +26,7 @@
     border-bottom: 1px solid #dddd;
 }
 
-.sidebar-menu{
+.sidebar-menu {
     width: 100%;
     min-height: 100vh !important;
     padding: 0 20px;
@@ -36,14 +36,15 @@
     align-items: flex-start;
 }
 
-.sidebar-menu .label{
+.sidebar-menu .label {
     margin-bottom: 0px;
 }
 
-.sidebar-menu .dropdown{
+.sidebar-menu .dropdown {
     width: 100%;
 }
-.sidebar-menu button.item{
+
+.sidebar-menu button.item {
     margin-bottom: 0px !important;
     padding: 10px 0;
     display: flex;
@@ -62,20 +63,20 @@
     color: rgb(91, 91, 91);
 }
 
-.sidebar-menu button.item p{
+.sidebar-menu button.item p {
     margin-left: -5%;
 }
 
-.sidebar .collapse{
+.sidebar .collapse {
     width: 100%;
 }
 
-.sidebar .collapse button.item{
+.sidebar .collapse button.item {
     width: 90%;
     margin-left: 20px;
 }
 
-.sidebar-menu button.item i{
+.sidebar-menu button.item i {
     margin-right: 10px;
     font-size: 18px;
 }
@@ -92,36 +93,39 @@
 .sidebar-menu.sell button.sell,
 .sidebar-menu.disease button.disease,
 .sidebar-menu.setup button.setup,
-.sidebar-menu.profile button.profile{
+.sidebar-menu.profile button.profile {
     background-color: #def0ec;
     color: #11713f;
 }
 
-.sidebar-menu.reports button.insights{
+.sidebar-menu.reports button.insights {
     color: black;
     background-color: transparent;
 }
 
 
 @media only screen and (max-width: 600px) {
-    .sidebar{
+    .sidebar {
         width: 100px;
     }
 
-    .sidebar .sidebar-menu button{
+    .sidebar .sidebar-menu button {
         justify-content: center !important;
         align-items: center;
         text-indent: 0px !important;
         text-align: center !important;
     }
-    .sidebar .sidebar-menu button i{
+
+    .sidebar .sidebar-menu button i {
         margin: 0px !important;
     }
+
     .sidebar .sidebar-menu label,
-    .sidebar .sidebar-menu button p{
+    .sidebar .sidebar-menu button p {
         display: none;
     }
-    .dashboard .main{
+
+    .dashboard .main {
         margin-left: 100px !important;
         width: calc(100% - 100px) !important;
     }
@@ -131,19 +135,19 @@
 .sidebar::-webkit-scrollbar {
     border-radius: 5px;
     width: 4px;
-  }
-  
-  /* Track */
+}
+
+/* Track */
 .sidebar::-webkit-scrollbar-track {
     background: #f1f1f1;
-  }
-  
-  /* Handle */
+}
+
+/* Handle */
 .sidebar::-webkit-scrollbar-thumb {
     background: rgba(221, 221, 221, 0.8);
-  }
-  
-  /* Handle on hover */
+}
+
+/* Handle on hover */
 .sidebar::-webkit-scrollbar-thumb:hover {
     background: rgb(220, 220, 220);
-  }
+}

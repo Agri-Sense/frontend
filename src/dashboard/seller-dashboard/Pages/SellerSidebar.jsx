@@ -7,7 +7,7 @@ export const SellerSidebar = ({ active }) => {
   return (
     <>
       <div className="sidebar">
-        <div className="brandLogo">Farmap</div>
+        <div className="brandLogo">Agri-sense</div>
         <div className={`sidebar-menu ${active}`}>
           <div className="grouped">
             <label htmlFor="#" className="label">
@@ -53,7 +53,7 @@ export const SellerSidebar = ({ active }) => {
             </button>
             <button
               className="item logout"
-              onClick={() => {}} >
+              onClick={() => { }} >
               <i className="bi bi-box-arrow-right"></i>
               <p>Logout</p>
             </button>

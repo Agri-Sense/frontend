@@ -4,15 +4,15 @@ export const FarmDisplay = () => {
     return (
         <div className="farm-display">
             <div className="encourage">
-                <label htmlFor="#">Farmap Community</label>
+                <label htmlFor="#">Agri-sense Community</label>
                 <p className="en-message mx-auto text-muted">Create, share and learn from the unlimited notes, photos and videos and ask your questions, answer your friends all over the world and grow. Create, share and learn.</p>
                 <div className="actions">
                     <button className="mx-auto mb-2">Join Community, it's free!</button>
-                    <button className="mx-auto">Watch about Farmap</button>
+                    <button className="mx-auto">Watch about Agri-sense</button>
                 </div>
             </div>
             <div className="friends-suggestion">
-            <label htmlFor="#" className="suggestions-label">Suggestions</label>
+                <label htmlFor="#" className="suggestions-label">Suggestions</label>
 
                 <div className="user">
                     <div className="left">
@@ -71,6 +71,6 @@ export const FarmDisplay = () => {
                     </div>
                 </div>
             </div>
-        </div>      
+        </div>
     )
 }

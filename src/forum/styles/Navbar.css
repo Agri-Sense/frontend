@@ -1,4 +1,4 @@
-.forum .navbar{
+.forum .navbar {
     position: fixed;
     top: 0;
     z-index: 999999;
@@ -15,7 +15,7 @@
     background-color: white;
 }
 
-.navbar .brand{
+.navbar .brand {
     margin-left: 7.5%;
     width: 105px;
     padding: 1px 5px;
@@ -23,7 +23,7 @@
     background-color: black;
 }
 
-.navbar .center{
+.navbar .center {
     width: calc(92.5% - 105px);
     padding-right: 105px;
     display: flex;
@@ -33,14 +33,14 @@
     gap: 5%;
 }
 
-.navbar .center .left{
+.navbar .center .left {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
 .navbar .actionButtons button,
-.navbar .center button{
+.navbar .center button {
     padding: 7px 15px !important;
     font-size: 18px;
     padding: 5px 10px;
@@ -50,20 +50,21 @@
     color: black;
     background-color: transparent;
 }
+
 .navbar .actionButtons button.active,
-.navbar .center button.active{
+.navbar .center button.active {
     color: white !important;
     border: 1px solid #017368 !important;
     background-color: #00897b !important;
     transition: none !important;
 }
 
-.navbar .searchBar{
+.navbar .searchBar {
     width: 35%;
     min-width: 300px;
 }
 
-.navbar .searchBar input{
+.navbar .searchBar input {
     width: 100%;
     height: 40px;
     text-indent: 15px;
@@ -72,17 +73,18 @@
     background-color: #f3f3f3;
 }
 
-.navbar .actionButtons .loggedInBtns button{
+.navbar .actionButtons .loggedInBtns button {
     border: none;
     color: black;
 }
 
-.navbar .actionButtons .loggedInBtns button.show{
+.navbar .actionButtons .loggedInBtns button.show {
     color: white;
     background-color: rgba(69, 90, 100) !important;
 }
+
 .navbar .actionButtons .loggedInBtns,
-.navbar .actionButtons .logedOutBtns{
+.navbar .actionButtons .logedOutBtns {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -90,14 +92,14 @@
     gap: 15px;
 }
 
-.navbar .actionButtons{
+.navbar .actionButtons {
     margin-left: 5%;
 }
 
-.navbar .actionButtons .dropdown-menu.show{
+.navbar .actionButtons .dropdown-menu.show {
     padding: 0;
-    box-sizing:content-box;
-    margin-left: -140px; 
+    box-sizing: content-box;
+    margin-left: -140px;
     width: 350px;
     min-height: 300px;
     max-height: 350px;
@@ -106,17 +108,17 @@
 }
 
 .navbar .actionButtons .logedOutBtns button,
-.navbar .actionButtons .loggedInBtns button{
+.navbar .actionButtons .loggedInBtns button {
     border-radius: 5px;
     background-color: #e8eaeb;
 }
 
-.navbar .actionButtons .logedOutBtns button{
+.navbar .actionButtons .logedOutBtns button {
     padding: 0 5px;
     border-radius: 2px;
 }
 
-.navbar .actionButtons .logedOutBtns button.active{
+.navbar .actionButtons .logedOutBtns button.active {
     color: white;
     background-color: black;
 }

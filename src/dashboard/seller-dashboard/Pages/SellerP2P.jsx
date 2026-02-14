@@ -33,7 +33,7 @@ const SellerP2P = () => {
               <div className="order" key={item}>
                 <div className="info">
                   <div className="left">
-                    <img src="https://farmapcdn.blob.core.windows.net/farmap/pfggg.png" alt="farmer" />
+                    <img src="https://agri-sensecdn.blob.core.windows.net/agri-sense/pfggg.png" alt="farmer" />
                   </div>
                   <div className="right">
                     <div className="product-title">Organic Rice</div>

@@ -1,9 +1,10 @@
 import { LineChart } from 'react-chartkick'
 import 'chartkick/chart.js'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import axios from 'axios'
 import { useQuery } from 'react-query'
+import { useLiveSensing } from '../../../hooks/useLiveSensing'
 
 import "../styles/insightReports.css"
 
@@ -11,20 +12,26 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Sensors = () => {
-    const { isLoading, error, data, isFetching } = useQuery('sensors-data', async () => {
-        // Fetch from local NodeMCU server instead of Azure
+    const { data: mqttData, status: mqttStatus } = useLiveSensing();
+    const [sensorHistory, setSensorHistory] = useState({
+        Temperature: {},
+        Humidity: {},
+        Moisture: {},
+        Light: {}
+    });
+
+    const isFirstLoad = useRef(true);
+
+    // Initial fetch from local NodeMCU server
+    const { isLoading, error, data: initialData } = useQuery('sensors-data', async () => {
         const res = await axios({
             method: 'get',
             url: 'http://localhost:8001/data',
         });
 
-        if (!res) return null
+        if (!res) return null;
 
-        console.log("New data is being fetched", res.data)
-
-        // Local server returns data in format: { data: [[timestamp, temp, hum, moisture, light], ...] }
         const sensorsData = res.data.data;
-
         const fetchedData = {
             Temperature: {},
             Humidity: {},
@@ -32,96 +39,141 @@ const Sensors = () => {
             Light: {}
         };
 
-        // Parse the tuple data from Python backend
-        // Tuple index: 0=Timestamp, 1=Temperature, 2=Humidity, 3=Moisture, 4=Light
         if (Array.isArray(sensorsData)) {
             sensorsData.forEach(point => {
-                // Ensure point is valid array
-                if (Array.isArray(point) && point.length >= 5) {
-                    const timestamp = point[0];
-                    fetchedData.Temperature[timestamp] = parseFloat(point[1]).toFixed(2);
-                    fetchedData.Humidity[timestamp] = parseFloat(point[2]).toFixed(2);
-                    fetchedData.Moisture[timestamp] = parseFloat(point[3]).toFixed(2);
-                    fetchedData.Light[timestamp] = parseFloat(point[4]).toFixed(2);
-                }
+                const timestamp = point.timestamp;
+                fetchedData.Temperature[timestamp] = parseFloat(point.temperature).toFixed(2);
+                fetchedData.Humidity[timestamp] = parseFloat(point.humidity).toFixed(2);
+                fetchedData.Moisture[timestamp] = parseFloat(point.moisture).toFixed(2);
+                fetchedData.Light[timestamp] = parseFloat(point.light).toFixed(2);
             });
         }
-
-        const min_max_values = {
-            Temperature: { min: Number.MAX_VALUE, max: Number.MIN_VALUE },
-            Humidity: { min: Number.MAX_VALUE, max: Number.MIN_VALUE },
-            Moisture: { min: Number.MAX_VALUE, max: Number.MIN_VALUE },
-            Light: { min: Number.MAX_VALUE, max: Number.MIN_VALUE }
-        };
-
-        for (const [field, data] of Object.entries(fetchedData)) {
-            const values = Object.values(data);
-            if (values.length > 0) {
-                min_max_values[field].min = Math.min(...values);
-                min_max_values[field].max = Math.max(...values);
-            } else {
-                // Default min/max if no data
-                min_max_values[field].min = 0;
-                min_max_values[field].max = 10;
-            }
-        }
-
-        return { sensorData: fetchedData, minMaxValues: min_max_values }
+        return fetchedData;
     }, {
-        staleTime: 5000, // Refresh every 5 seconds for local dev
-        refetchInterval: 5000
+        staleTime: Infinity,
+        enabled: isFirstLoad.current
     });
 
-    if (isFetching || isLoading) return
+    // Initialize state with fetched data
+    useEffect(() => {
+        if (initialData && isFirstLoad.current) {
+            setSensorHistory(initialData);
+            isFirstLoad.current = false;
+        }
+    }, [initialData]);
+
+    // Update state with live MQTT data
+    useEffect(() => {
+        if (mqttData) {
+            const timestamp = new Date().toLocaleTimeString();
+            setSensorHistory(prev => ({
+                Temperature: { ...prev.Temperature, [timestamp]: parseFloat(mqttData.temperature).toFixed(2) },
+                Humidity: { ...prev.Humidity, [timestamp]: parseFloat(mqttData.humidity).toFixed(2) },
+                Moisture: { ...prev.Moisture, [timestamp]: parseFloat(mqttData.moisture).toFixed(2) },
+                Light: { ...prev.Light, [timestamp]: parseFloat(mqttData.light).toFixed(2) }
+            }));
+
+            // Limit history to last 20 points for performance
+            const limitHistory = (obj) => {
+                const keys = Object.keys(obj);
+                if (keys.length > 20) {
+                    const newObj = {};
+                    keys.slice(keys.length - 20).forEach(k => newObj[k] = obj[k]);
+                    return newObj;
+                }
+                return obj;
+            };
+
+            setSensorHistory(prev => ({
+                Temperature: limitHistory(prev.Temperature),
+                Humidity: limitHistory(prev.Humidity),
+                Moisture: limitHistory(prev.Moisture),
+                Light: limitHistory(prev.Light)
+            }));
+        }
+    }, [mqttData]);
+
+    const getMinMax = (dataObj) => {
+        const values = Object.values(dataObj).map(v => parseFloat(v));
+        if (values.length === 0) return { min: 0, max: 100 };
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        // Add padding and handle equal min/max
+        if (min === max) return { min: min - 5, max: max + 5 };
+        return { min, max };
+    };
+
+    if (isLoading && isFirstLoad.current) return <div style={{ padding: '20px', textAlign: 'center' }}>Loading historical data...</div>
     if (error) {
         console.log('An error has occurred: ' + error.message)
-        toast.error("Error encountered at fetch")
+        toast.error("Error fetching historical data")
     }
 
     return (
-        <>
+        <div style={{ position: 'relative' }}>
+            <div style={{
+                position: 'absolute',
+                top: '-40px',
+                right: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '14px',
+                fontWeight: 'bold',
+                color: mqttStatus === 'Connected' ? '#4CAF50' : '#FF9800'
+            }}>
+                <div style={{
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '50%',
+                    backgroundColor: mqttStatus === 'Connected' ? '#4CAF50' : '#FF9800',
+                    boxShadow: mqttStatus === 'Connected' ? '0 0 8px #4CAF50' : 'none'
+                }}></div>
+                {mqttStatus === 'Connected' ? 'LIVE SENSING ACTIVE' : mqttStatus}
+            </div>
+
             <div className="charts-container">
-                <p>Temperature data</p>
+                <p>Temperature data (°C)</p>
                 <LineChart data={
-                    [{ "name": "Temperature", "data": data ? data.sensorData.Temperature : [] }]}
-                    min={data ? data.minMaxValues.Temperature.min : 0}
-                    max={data ? data.minMaxValues.Temperature.max + 0.1 : 10}
+                    [{ "name": "Temperature", "data": sensorHistory.Temperature }]}
+                    min={getMinMax(sensorHistory.Temperature).min - 1}
+                    max={getMinMax(sensorHistory.Temperature).max + 1}
                     curve={true}
                     colors={['#e74c3c']}
                     ytitle="Temperature" xtitle="Time"
                     download="temperature-data" />
 
-                <p>Moisture data</p>
+                <p>Moisture data (%)</p>
                 <LineChart data={
-                    [{ "name": "Moisture", "data": data ? data.sensorData.Moisture : [] }]}
-                    min={data ? data.minMaxValues.Moisture.min : 0}
-                    max={data ? data.minMaxValues.Moisture.max + 1 : 10}
+                    [{ "name": "Moisture", "data": sensorHistory.Moisture }]}
+                    min={getMinMax(sensorHistory.Moisture).min - 5}
+                    max={getMinMax(sensorHistory.Moisture).max + 5}
                     curve={false}
                     colors={["#07bc0c"]}
                     ytitle="Moisture" xtitle="Time"
                     download="moisture-data" />
 
-                <p>Humidity data</p>
+                <p>Humidity data (%)</p>
                 <LineChart data={
-                    [{ "name": "Relative Humidity", "data": data ? data.sensorData.Humidity : [] }]}
-                    min={data ? data.minMaxValues.Humidity.min : 0}
-                    max={data ? data.minMaxValues.Humidity.max + 3 : 10}
+                    [{ "name": "Relative Humidity", "data": sensorHistory.Humidity }]}
+                    min={getMinMax(sensorHistory.Humidity).min - 2}
+                    max={getMinMax(sensorHistory.Humidity).max + 2}
                     curve={true}
-                    ytitle="Relative Humidity /gkg-1" xtitle="Time"
+                    ytitle="Relative Humidity" xtitle="Time"
                     download="humidity-data" />
 
-                <p>Light data</p>
+                <p>Light data (LUX)</p>
                 <LineChart data={
-                    [{ "name": "Light Intensity", "data": data ? data.sensorData.Light : [] }]}
-                    min={data ? data.minMaxValues.Light.min : 0}
-                    max={data ? data.minMaxValues.Light.max + 2 : 10}
+                    [{ "name": "Light Intensity", "data": sensorHistory.Light }]}
+                    min={getMinMax(sensorHistory.Light).min - 10}
+                    max={getMinMax(sensorHistory.Light).max + 10}
                     curve={true}
                     ytitle="Light Intensity" xtitle="Time"
                     colors={['#f1c40f']}
                     download="light-data" />
             </div>
             <ToastContainer />
-        </>
+        </div>
     )
 }
 

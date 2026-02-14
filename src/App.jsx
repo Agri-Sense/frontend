@@ -33,6 +33,8 @@ import Sell from "./dashboard/user-dashboard/components/sell";
 import Disease from "./dashboard/user-dashboard/components/disease";
 import Setup from "./dashboard/user-dashboard/components/setup";
 import Profile from "./dashboard/user-dashboard/components/profile";
+import CropRecommendation from "./dashboard/user-dashboard/components/cropRecommendation";
+import AgriSense3D from "./dashboard/user-dashboard/components/AgriSense3D";
 
 //importing seller dashboard components
 import { SellerSidebar } from "./dashboard/seller-dashboard/Pages/SellerSidebar";
@@ -144,6 +146,15 @@ function App() {
                   }
                 />
                 <Route
+                  path="/dashboard/crop"
+                  element={
+                    <Dashboard
+                      sidebar={<UserSidebar active={"crop"} />}
+                      component={<CropRecommendation />}
+                    />
+                  }
+                />
+                <Route
                   path="/dashboard/setup"
                   element={
                     <Dashboard
@@ -167,6 +178,15 @@ function App() {
                     <Dashboard
                       sidebar={<UserSidebar active={"sell"} />}
                       component={<Sell />}
+                    />
+                  }
+                />
+                <Route
+                  path="/dashboard/3d"
+                  element={
+                    <Dashboard
+                      sidebar={<UserSidebar active={"3d"} />}
+                      component={<AgriSense3D />}
                     />
                   }
                 />
@@ -202,14 +222,14 @@ function App() {
                 />
 
                 <Route
-                path="/dashboard/seller/profile"
-                element={
-                  <Dashboard
-                    sidebar={<SellerSidebar active={"profile"} />}
-                    component={<SellerProfile />}
-                  />
-                }
-              />
+                  path="/dashboard/seller/profile"
+                  element={
+                    <Dashboard
+                      sidebar={<SellerSidebar active={"profile"} />}
+                      component={<SellerProfile />}
+                    />
+                  }
+                />
 
                 {/* Error 404 page */}
                 <Route
